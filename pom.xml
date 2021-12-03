@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>co.prosegur</groupId>
+	<artifactId>servicioAtestados</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>servicioAtestados</name>
+	<description>Servicio de Automatización de Certificados</description>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>		
+			<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>			
+			<scope>provided</scope>
+		</dependency>				
+		<dependency>
+			<!-- Maneja la seguridad en peticiones y distribución de datos-->
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.68</version>
+		</dependency>	  
+		<dependency>
+			<!--Un controlador JDBC que proporciona acceso a Oracle.  -->
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency>				
+		<!-- Esta es la de gobierno.
+		<dependency>						
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>19.6.0.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+		<dependency>
+			<!-- Conserve los datos en las tiendas SQL con JDBC simple usando Spring Data. -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		        
+		<dependency>
+			<!--Auto conector/facilitador de conexion a base con springboot -->
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Biblioteca Java para generar salida de texto (páginas web HTML, correos electrónicos, archivos de 
+				 configuración, código fuente, etc.) basado en plantillas y datos cambiantes. -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<!-- Marco para desarrollar servicios web RESTful en Java que proporciona soporte para las API de JAX-RS. -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		<dependency>
+			<!-- Proporciona una API e implementaciones para administrar la información de la sesión del usuario. -->
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-core</artifactId>
+		</dependency>
+		<dependency>
+			<!-- Proporciona reinicios rápidos de aplicaciones, LiveReload y configuraciones para una experiencia 
+				 de desarrollo mejorada. -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<!-- Swagger es un framework de código abierto, que nos ayudan a diseñar, construir, documentar y 
+				 consumir un servicio RESTful.-->			
+	        <groupId>io.springfox</groupId>
+	        <artifactId>springfox-swagger2</artifactId>
+	        <version>2.9.2</version>
+		</dependency>
+		<dependency>
+			 <!-- Permite generar automáticamente la documentación de nuestra API -->	
+	        <groupId>io.springfox</groupId>
+	        <artifactId>springfox-swagger-ui</artifactId>
+	        <version>2.9.2</version>
+		</dependency>			
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>			 	
+					<executions>
+						<execution>            
+							<id>build-info</id>            
+							<goals>                
+								<goal>build-info</goal>            
+							</goals>        
+						</execution>
+				        <execution>
+				            <goals>
+				                <goal>repackage</goal>
+				            </goals>
+				            <configuration>
+				                <classifier>with-dependencies</classifier>
+				                <mainClass>				                  
+				                  co.prosegur.servicioAtestados.ServicioAtestadosApplication
+				                </mainClass>
+				                <excludes>
+									<exclude>
+										<groupId>org.projectlombok</groupId>
+										<artifactId>lombok</artifactId>
+									</exclude>
+								</excludes>
+				            </configuration>
+				        </execution>
+			    </executions>				
+			</plugin>
+		</plugins>
+	</build>
+</project>
