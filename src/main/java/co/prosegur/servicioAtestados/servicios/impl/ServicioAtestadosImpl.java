@@ -12,7 +12,8 @@ public class ServicioAtestadosImpl implements ServicioAtestados{
 
 	private final CbrLogAutomacaoDao resultLogAutomacao;
 	/*private final EstadoRenunciaDAO estRenDao;
-	private final UltimaLiquidacionDAO ultLiqDao;*/
+	private final UltimaLiquidacionDAO ultLiqDao;
+	*/
 	
 	@Autowired
 	public ServicioAtestadosImpl(CbrLogAutomacaoDao resultLogAutomacao) {
